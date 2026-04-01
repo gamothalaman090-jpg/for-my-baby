@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A little something from Eunich John, just for you, Jethy 💜" />
+  <title>Para sa 'yo, Jethy 💜</title>
+  <!-- Fonts: Playfair Display (romantic display) + Nunito (bubbly body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Ambient heart particle canvas (fixed, behind everything) -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating audio player -->
+  <button id="audio-player" class="audio-pill" aria-label="Play our song - Panata">
+    <span class="audio-icon">🎵</span>
+    <span class="audio-label">Panata</span>
+    <span class="audio-status">Play</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 1 — HERO
+    ═══════════════════════════════════════════ -->
+  <section id="hero" class="section hero-section">
+    <div class="hero-content">
+      <p id="hero-greeting" class="hero-greeting">Psst... Jethy,</p>
+      <h1 id="hero-title" class="hero-title">Para sayo to boss 💜</h1>
+      <p id="hero-subtitle" class="hero-subtitle">
+        May gusto akong sabihin sayo.
+      </p>
+      <div id="scroll-indicator" class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-dot"></div>
+        <span>Scroll Down</span>
+      </div>
+    </div>
+    <div class="hero-bears">
+      <img id="hero-bears-img" src="/images/5.jpg" alt="Two cute bears representing Eunich and Janna"
+        class="bears-img" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 2 — STORY
+    ═══════════════════════════════════════════ -->
+  <section id="story" class="section story-section">
+    <div class="section-content">
+      <span class="section-eyebrow">Chapter One</span>
+      <h2 class="section-title">Ang Simula</h2>
+      <p class="section-sub">How we got here...</p>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item" data-from="left">
+          <div class="timeline-dot">✨</div>
+          <div class="timeline-card glass-card">
+            <h3>Noong Una...</h3>
+            <p>The day we first started talking. I didn't know then how much you'd mean to me. But I had a feeling.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-from="right">
+          <div class="timeline-dot">😂</div>
+          <div class="timeline-card glass-card">
+            <h3>When You Made Me Laugh</h3>
+            <p>You said something so perfectly weird and I thought — yeah. This one is different. This one is mine.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-from="left">
+          <div class="timeline-dot">🌸</div>
+          <div class="timeline-card glass-card">
+            <h3>The Flowers & Bears Moment</h3>
+            <p>Purple wrapper. Two little bears. Mogu Mogu lychee. That was a really, really good day.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-from="right">
+          <div class="timeline-dot">💜</div>
+          <div class="timeline-card glass-card">
+            <h3>Every Day Since</h3>
+            <p>Talking to you became the best part of every single day. And I really, really want it to stay that way.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 3 — PHOTOS
+    ═══════════════════════════════════════════ -->
+  <section id="photos" class="section photos-section">
+    <div class="section-content">
+      <span class="section-eyebrow">Evidence 📸</span>
+      <h2 class="section-title">Me and my Baby 🐻💕</h2>
+      <div class="photo-grid" id="photo-grid">
+        <div class="photo-card photo-card--large">
+          <img src="/images/1.jpg" alt="Eunich and Janna together" />
+          <div class="photo-caption">fav picture 🫶</div>
+        </div>
+        <div class="photo-card photo-card--small">
+          <img src="/images/4.jpg" alt="Golden hour selfie" />
+          <div class="photo-caption">golden hour 🌅</div>
+        </div>
+        <div class="photo-card photo-card--small">
+          <img src="/images/2.jpg" alt="Close up selfie" />
+          <div class="photo-caption">too close 😭</div>
+        </div>
+        <div class="photo-card photo-card--feature">
+          <img src="/images/3.jpg" alt="Their matching crochet bears and flowers" />
+          <div class="photo-caption">the bears 🐻🐻‍❄️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 4 — REASONS
+    ═══════════════════════════════════════════ -->
+  <section id="reasons" class="section reasons-section">
+    <div class="section-content">
+      <span class="section-eyebrow">Why you?</span>
+      <h2 class="section-title">Bakit Ikaw? 🤔</h2>
+      <p class="section-sub">Let me count the ways.</p>
+      <div class="reasons-grid" id="reasons-grid">
+        <div class="reason-card glass-card" id="reason-0">
+          <div class="reason-emoji">😭</div>
+          <p>Your smile should be illegal. Literally. I am not okay.</p>
+        </div>
+        <div class="reason-card glass-card" id="reason-1">
+          <div class="reason-emoji">🫂</div>
+          <p>You make me feel safe even on the days I don't love myself.</p>
+        </div>
+        <div class="reason-card glass-card" id="reason-2">
+          <div class="reason-emoji">🤪</div>
+          <p>You're the exact right kind of weird. My kind of weird.</p>
+        </div>
+        <div class="reason-card glass-card" id="reason-3">
+          <div class="reason-emoji">👓</div>
+          <p>You wear glasses and somehow gatekeep that entire look. Unfair.</p>
+        </div>
+        <div class="reason-card glass-card" id="reason-4">
+          <div class="reason-emoji">🌸</div>
+          <p>You turn the hardest days into something manageable just by existing in them.</p>
+        </div>
+        <div class="reason-card glass-card" id="reason-5">
+          <div class="reason-emoji">🐻</div>
+          <p>You accepted those bears and flowers and my heart never recovered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 5 — PROMISE LETTER
+    ═══════════════════════════════════════════ -->
+  <section id="promise" class="section promise-section">
+    <div class="section-content">
+      <span class="section-eyebrow">From Eunich</span>
+      <h2 class="section-title">Isang Liham 💌</h2>
+      <div class="letter-card glass-card" id="letter-card">
+        <p class="letter-salutation">Hello Jethy!</p>
+        <div class="letter-body">
+          <p class="letter-line" id="ll-1">So i've been working on this for a couple of days — and I <em>really</em>
+            want it to make it work between us.</p>
+          <p class="letter-line" id="ll-2">You've made me so happy for the couple of weeks we've been talking, and you
+            make me feel safe on the times I don't even love myself.</p>
+          <p class="letter-line" id="ll-3">This message honestly could've been a lot longer pero I want to tell you
+            <em>in person</em> on how much I appreciate you and I know that you know I love you.
+          </p>
+          <p class="letter-line" id="ll-4">Thank you for existing. And thank you for deciding to decide a whole lifetime
+            with me.</p>
+          <p class="letter-closing" id="ll-5">I love you so much. 💜</p>
+        </div>
+        <p class="letter-signature">— Your Nini~</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         SECTION 6 — THE PROPOSAL
+    ═══════════════════════════════════════════ -->
+  <section id="proposal" class="section proposal-section">
+    <div class="proposal-content" id="proposal-content">
+      <span class="section-eyebrow proposal-eyebrow">The big question...</span>
+      <h2 class="proposal-lead">So, Jethy...</h2>
+      <p class="proposal-someday">Someday...</p>
+      <h1 class="proposal-question">Will you be mine? 💍</h1>
+      <div class="proposal-buttons" id="proposal-buttons">
+        <button id="yes-btn" class="btn-yes" aria-label="Yes!">
+          <span>Yes! 🥹</span>
+        </button>
+        <button id="no-btn" class="btn-no" aria-label="No">
+          <span>No</span>
+        </button>
+      </div>
+      <p class="proposal-hint" id="proposal-hint">(good luck clicking that other button hehe)</p>
+    </div>
+
+    <!-- Celebration Overlay (hidden until YES clicked) -->
+    <div id="celebration" class="celebration" aria-hidden="true">
+      <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+      <div class="celebration-body">
+        <div class="celebration-ring">💍</div>
+        <h2 class="celebration-title">Sabi niya yes!!! 🎉</h2>
+        <p class="celebration-text">Or at least she will someday. And I'll be right here waiting.</p>
+        <p class="celebration-names">Nini loves you a lot!!! </p>
+        <img src="/images/catheart.png" alt="our bears" class="celebration-bears" />
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

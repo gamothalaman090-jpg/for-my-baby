@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vite/
+playwright-report/
+test-results/
+*.local
+
+# Audio file (personal, not for repo)
+public/audio/
+
+# Personal photos (not for repo - add locally)
+# public/images/1.jpg
+# public/images/2.jpg
+# etc.
