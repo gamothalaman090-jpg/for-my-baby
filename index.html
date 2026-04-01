@@ -10,11 +10,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700;800;900&family=Pinyon+Script&display=swap"
     rel="stylesheet" />
 </head>
 
 <body>
+  <!-- Entry Overlay (The Invitation) -->
+  <div id="entry-overlay" class="entry-overlay">
+    <div class="envelope-wrapper">
+      <div id="envelope" class="envelope">
+        <div class="flap"></div>
+        <div class="pocket"></div>
+        <div class="wax-seal" id="entry-btn">
+          <div class="seal-inner">
+            <span class="heart">💜</span>
+          </div>
+        </div>
+        <div class="recipient">For my Baby 💜</div>
+      </div>
+      <p class="click-hint">Click the Heart to Open :D</p>
+    </div>
+  </div>
+
   <!-- Ambient heart particle canvas (fixed, behind everything) -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
@@ -25,9 +42,9 @@
     <span class="audio-status">Play</span>
   </button>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 1 — HERO
-    ═══════════════════════════════════════════ -->
+    -->
   <section id="hero" class="section hero-section">
     <div class="hero-content">
       <p id="hero-greeting" class="hero-greeting">Psst... Jethy,</p>
@@ -46,9 +63,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 2 — STORY
-    ═══════════════════════════════════════════ -->
+    -->
   <section id="story" class="section story-section">
     <div class="section-content">
       <span class="section-eyebrow">Chapter One</span>
@@ -88,9 +105,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 3 — PHOTOS
-    ═══════════════════════════════════════════ -->
+ -->
   <section id="photos" class="section photos-section">
     <div class="section-content">
       <span class="section-eyebrow">Evidence 📸</span>
@@ -116,9 +133,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 4 — REASONS
-    ═══════════════════════════════════════════ -->
+    -->
   <section id="reasons" class="section reasons-section">
     <div class="section-content">
       <span class="section-eyebrow">Why you?</span>
@@ -153,9 +170,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 5 — PROMISE LETTER
-    ═══════════════════════════════════════════ -->
+   -->
   <section id="promise" class="section promise-section">
     <div class="section-content">
       <span class="section-eyebrow">From Eunich</span>
@@ -179,9 +196,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
+  <!-- 
          SECTION 6 — THE PROPOSAL
-    ═══════════════════════════════════════════ -->
+     -->
   <section id="proposal" class="section proposal-section">
     <div class="proposal-content" id="proposal-content">
       <span class="section-eyebrow proposal-eyebrow">The big question...</span>

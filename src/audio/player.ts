@@ -4,7 +4,14 @@
 
 export function initAudioPlayer(): void {
   const btn = document.getElementById('audio-player') as HTMLButtonElement | null
+  const entryBtn = document.getElementById('entry-btn')
+  const overlay = document.getElementById('entry-overlay')
+  const envelope = document.getElementById('envelope')
+
   if (!btn) return
+
+  // Lock scrolling while overlay is active
+  document.body.classList.add('overlay-active')
 
   const audio = new Audio('/audio/panata.mp3')
   audio.loop = true
@@ -14,11 +21,10 @@ export function initAudioPlayer(): void {
   let playing = false
   let started = false
 
-  // Smooth volume fade
-  const fade = (targetVol: number, duration = 900) => {
+  const fade = (targetVol: number, duration = 1200) => {
     const startVol = audio.volume
     const diff = targetVol - startVol
-    const steps = 30
+    const steps = 40
     const stepTime = duration / steps
     let step = 0
     const timer = setInterval(() => {
@@ -38,56 +44,58 @@ export function initAudioPlayer(): void {
       btn.classList.add('playing')
       statusEl.textContent = 'Pause'
     } catch {
-      // Browser still blocked — user needs to click the pill manually
       started = false
     }
   }
 
-  // Try autoplay on page load (works in some browsers)
-  startPlaying()
+  // ENVELOPE OPENING TRIGGER
+  if (entryBtn && overlay && envelope) {
+    entryBtn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      
+      // 1. Trigger CSS animation
+      envelope.classList.add('open')
+      
+      // 2. Start music ( gesture allowed)
+      startPlaying()
 
-  // Hook first user interaction as a fallback trigger
+      // 3. Fade out overlay after animation
+      setTimeout(() => {
+        overlay.classList.add('hidden')
+        document.body.classList.remove('overlay-active')
+      }, 1000)
+    })
+  }
+
+  // Backup interaction trigger (if they click/touch elsewhere)
   const onFirstInteraction = () => {
+    if (!started && !overlay?.classList.contains('hidden')) return
     startPlaying()
-    window.removeEventListener('click', onFirstInteraction)
     window.removeEventListener('scroll', onFirstInteraction)
-    window.removeEventListener('keydown', onFirstInteraction)
     window.removeEventListener('touchstart', onFirstInteraction)
   }
 
-  window.addEventListener('click', onFirstInteraction, { once: true })
   window.addEventListener('scroll', onFirstInteraction, { once: true, passive: true })
-  window.addEventListener('keydown', onFirstInteraction, { once: true })
   window.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true })
 
   // Manual pill toggle
   btn.addEventListener('click', async (e) => {
-    e.stopPropagation() // Don't double-fire the window click listener
-
+    e.stopPropagation()
     if (!playing) {
-      try {
-        await audio.play()
-        playing = true
-        started = true
-        fade(0.55)
-        btn.classList.add('playing')
-        statusEl.textContent = 'Pause'
-      } catch {
-        statusEl.textContent = 'No file yet'
-      }
+      startPlaying()
     } else {
       fade(0)
-      setTimeout(() => { audio.pause() }, 900)
+      setTimeout(() => { audio.pause() }, 1200)
       playing = false
       btn.classList.remove('playing')
       statusEl.textContent = 'Play'
     }
   })
 
-  // Graceful degradation if file missing
   audio.addEventListener('error', () => {
     statusEl.textContent = '▶ add file'
-    btn.title = 'Place panata.mp3 in public/audio/ to enable music'
+    btn.title = 'Place panata.mp3 in public/audio/'
     started = false
   })
 }
+
